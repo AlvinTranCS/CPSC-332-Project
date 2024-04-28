@@ -190,7 +190,7 @@ WHERE Professor.SSN = '345678901';
 -- B : Given a course number and a section number, count how many students get each
 -- distinct grade, i.e. ‘A’, ‘A-’, ‘B+’, ‘B’, ‘B-’, etc
 
-SELECT Enrollment_Record.C_Number, Enrollment_Record.Section_Number, Enrollment_Record.Grade, count(*)
+SELECT Enrollment_Record.Grade, count(*) as Total_Students
 FROM Enrollment_Record JOIN Section ON Enrollment_Record.C_Number = Section.C_Number AND Enrollment_Record.Section_Number = Section.S_Number
 WHERE Section.C_Number = 'MATH101' AND Section.S_Number = '01'
 GROUP BY Enrollment_Record.C_Number, Enrollment_Record.Section_Number, Enrollment_Record.Grade;
@@ -200,7 +200,7 @@ GROUP BY Enrollment_Record.C_Number, Enrollment_Record.Section_Number, Enrollmen
 -- A : Given a course number list the sections of the course, including the classrooms, the
 -- meeting days and time, and the number of students enrolled in each section.
 
-SELECT Section.S_Number, Section.Classroom, Section.Meeting_Days, Section.Beginning_Time, Section.Ending_Time, COUNT(*)
+SELECT Section.S_Number, Section.Classroom, Section.Meeting_Days, Section.Beginning_Time, Section.Ending_Time, COUNT(*) as Enrolled_Students
 FROM (Course JOIN Section ON Course.C_Number = Section.C_Number) JOIN Enrollment_Record ON Course.C_Number = Enrollment_Record.C_Number AND Section.S_Number = Enrollment_Record.Section_Number
 WHERE Course.C_Number = 'CS101'
 GROUP BY Section.S_Number, Section.Classroom, Section.Meeting_Days, Section.Beginning_Time, Section.Ending_Time;
