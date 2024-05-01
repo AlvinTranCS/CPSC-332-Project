@@ -193,7 +193,7 @@ WHERE Professor.SSN = '345678901';
 SELECT Enrollment_Record.Grade, count(*) as Total_Students
 FROM Enrollment_Record JOIN Section ON Enrollment_Record.C_Number = Section.C_Number AND Enrollment_Record.Section_Number = Section.S_Number
 WHERE Section.C_Number = 'MATH101' AND Section.S_Number = '01'
-GROUP BY Enrollment_Record.C_Number, Enrollment_Record.Section_Number, Enrollment_Record.Grade;
+GROUP BY Enrollment_Record.Grade;
 
 -- Student SQLs
 
