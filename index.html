@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>CPSC 332 Term Project</title>
+<style>
+    body { font-family: Arial, sans-serif; }
+    h2 { color: #333; }
+    form { margin-bottom: 20px; }
+    label { margin-right: 10px; }
+    input[type="text"], input[type="submit"] { margin-bottom: 10px; }
+    .section { margin-top: 20px; }
+</style>
+</head>
+<body>
+    <h1>CPSC 332 Term Project: Homepage</h1>
+
+    <div class="section" id="professors">
+        <h2>For Professors</h2>
+        <form>
+            <label for="prof-ssn">Enter SSN:</label>
+            <input type="text" id="prof-ssn">
+            <input type="submit" value="Find Your Classes"><br>
+        </form>
+        <form>
+            <label for="course-number">Course Number:</label>
+            <input type="text" id="course-number">
+            <label for="section-number">Section Number:</label>
+            <input type="text" id="section-number">
+            <input type="submit" value="Find Student Grades">
+        </form>
+    </div>
+
+    <div class="section" id="students">
+        <h2>For Students</h2>
+        <form>
+            <label for="student-course-number">Enter Course Number:</label>
+            <input type="text" id="student-course-number">
+            <input type="submit" value="Find Course Sections"><br>
+        </form>
+        <form>
+            <label for="student-id">Campus Wide ID:</label>
+            <input type="text" id="student-id">
+            <input type="submit" value="Find Grades and Courses">
+        </form>
+    </div>
+</body>
+</html>
