@@ -1,46 +1,46 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<title>CPSC 332 Term Project</title>
-<style>
-    body { font-family: Arial, sans-serif; }
-    h2 { color: #333; }
-    form { margin-bottom: 20px; }
-    label { margin-right: 10px; }
-    input[type="text"], input[type="submit"] { margin-bottom: 10px; }
-    .section { margin-top: 20px; }
-</style>
+    <meta charset="UTF-8">
+    <title>CPSC 332 Term Project</title>
+    <style>
+        body { font-family: Arial, sans-serif; }
+        h2 { color: #333; }
+        form { margin-bottom: 20px; }
+        label { margin-right: 10px; }
+        input[type="text"], input[type="submit"] { margin-bottom: 10px; }
+        .section { margin-top: 20px; }
+    </style>
 </head>
 <body>
     <h1>CPSC 332 Term Project: Homepage</h1>
 
     <div class="section" id="professors">
         <h2>For Professors</h2>
-        <form>
+        <form method="get" action="professor_classes.php">
             <label for="prof-ssn">Enter SSN:</label>
-            <input type="text" id="prof-ssn">
+            <input type="text" id="prof-ssn" name="prof_ssn" required>
             <input type="submit" value="Find Your Classes"><br>
         </form>
-        <form>
+        <form method="get" action="course_grades_count.php">
             <label for="course-number">Course Number:</label>
-            <input type="text" id="course-number">
+            <input type="text" id="course-number" name="course_number" required>
             <label for="section-number">Section Number:</label>
-            <input type="text" id="section-number">
+            <input type="text" id="section-number" name="section_number" required>
             <input type="submit" value="Find Student Grades">
         </form>
     </div>
 
     <div class="section" id="students">
         <h2>For Students</h2>
-        <form>
+        <form method="get" action="class_sections.php"> 
             <label for="student-course-number">Enter Course Number:</label>
-            <input type="text" id="student-course-number">
+            <input type="text" id="student-course-number" name="student_course_number" required>
             <input type="submit" value="Find Course Sections"><br>
         </form>
-        <form>
+        <form method="get" action="student_grades.php">
             <label for="student-id">Campus Wide ID:</label>
-            <input type="text" id="student-id">
+            <input type="text" id="student-id" name="student_id" required>
             <input type="submit" value="Find Grades and Courses">
         </form>
     </div>
