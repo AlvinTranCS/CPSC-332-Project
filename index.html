@@ -4,45 +4,116 @@
     <meta charset="UTF-8">
     <title>CPSC 332 Term Project</title>
     <style>
-        body { font-family: Arial, sans-serif; }
-        h2 { color: #333; }
-        form { margin-bottom: 20px; }
-        label { margin-right: 10px; }
-        input[type="text"], input[type="submit"] { margin-bottom: 10px; }
-        .section { margin-top: 20px; }
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #0c4c8c;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+        }
+
+        .container {
+            width: 300px;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            background-color: white;
+            text-align: center;
+            display: none;
+        }
+
+        #initial-box {
+            display: block;
+        }
+
+        h1, h2 {
+            color: #333;
+        }
+
+        button, input[type="submit"] {
+            padding: 10px 20px;
+            margin: 10px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            background-color: #007bff;
+            color: white;
+        }
+
+        button:hover, input[type="submit"]:hover {
+            background-color: #0056b3;
+        }
+
+        input[type="text"] {
+            margin-bottom: 10px;
+            padding: 8px;
+            border-radius: 5px;
+            border: 1px solid #ccc;
+            width: 80%;
+            display: block;
+            margin: 5px auto;
+        }
+
+        .go-back-btn {
+            margin-top: 10px;
+            background-color: #ff0000; /* Red */
+        }
+
+        .go-back-btn:hover {
+            background-color: #cc0000; /* Darker red */
+        }
+
+        input[type="submit"], button {
+            cursor: pointer;
+        }
     </style>
 </head>
 <body>
-    <h1>CPSC 332 Term Project: Homepage</h1>
 
-    <div class="section" id="professors">
+    <!-- Initial Box -->
+    <div id="initial-box" class="container">
+        <h2>Who Are You?</h2>
+        <button onclick="toggleForms('prof-box')">I am a Professor</button>
+        <button onclick="toggleForms('stud-box')">I am a Student</button>
+    </div>
+
+    <!-- Professor Form Box -->
+    <div id="prof-box" class="container">
         <h2>For Professors</h2>
         <form method="get" action="professor_classes.php">
-            <label for="prof-ssn">Enter SSN:</label>
-            <input type="text" id="prof-ssn" name="prof_ssn" required>
+            <input type="text" id="prof-ssn" name="prof_ssn" placeholder="Enter SSN" required>
             <input type="submit" value="Find Your Classes"><br>
         </form>
         <form method="get" action="course_grades_count.php">
-            <label for="course-number">Course Number:</label>
-            <input type="text" id="course-number" name="course_number" required>
-            <label for="section-number">Section Number:</label>
-            <input type="text" id="section-number" name="section_number" required>
+            <input type="text" id="course-number" name="course_number" placeholder="Course Number" required>
+            <input type="text" id="section-number" name="section_number" placeholder="Section Number" required>
             <input type="submit" value="Find Student Grades">
         </form>
+        <button class="go-back-btn" onclick="toggleForms('initial-box')">Go Back</button>
     </div>
 
-    <div class="section" id="students">
+    <!-- Student Form Box -->
+    <div id="stud-box" class="container">
         <h2>For Students</h2>
-        <form method="get" action="class_sections.php"> 
-            <label for="student-course-number">Enter Course Number:</label>
-            <input type="text" id="student-course-number" name="student_course_number" required>
+        <form method="get" action="class_sections.php">
+            <input type="text" id="student-course-number" name="student_course_number" placeholder="Enter Course Number" required>
             <input type="submit" value="Find Course Sections"><br>
         </form>
         <form method="get" action="student_grades.php">
-            <label for="student-id">Campus Wide ID:</label>
-            <input type="text" id="student-id" name="student_id" required>
+            <input type="text" id="student-id" name="student_id" placeholder="Campus Wide ID" required>
             <input type="submit" value="Find Grades and Courses">
         </form>
+        <button class="go-back-btn" onclick="toggleForms('initial-box')">Go Back</button>
     </div>
+
+    <script>
+        function toggleForms(visibleBox) {
+            const boxes = document.querySelectorAll('.container');
+            boxes.forEach(box => box.style.display = 'none');
+            document.getElementById(visibleBox).style.display = 'block';
+        }
+    </script>
 </body>
 </html>
