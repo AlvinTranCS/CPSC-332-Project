@@ -82,11 +82,11 @@
     <!-- Professor Form Box -->
     <div id="prof-box" class="container">
         <h2>For Professors</h2>
-        <form method="get" action="professor_classes.php">
+        <form method="get" action="list_professor_classes.php">
             <input type="text" id="prof-ssn" name="prof_ssn" placeholder="Enter SSN" required>
             <input type="submit" value="Find Your Classes"><br>
         </form>
-        <form method="get" action="course_grades_count.php">
+        <form method="get" action="count_student_grades.php">
             <input type="text" id="course-number" name="course_number" placeholder="Course Number" required>
             <input type="text" id="section-number" name="section_number" placeholder="Section Number" required>
             <input type="submit" value="Find Student Grades">
@@ -97,11 +97,11 @@
     <!-- Student Form Box -->
     <div id="stud-box" class="container">
         <h2>For Students</h2>
-        <form method="get" action="class_sections.php">
+        <form method="get" action="list_course_sections.php">
             <input type="text" id="student-course-number" name="student_course_number" placeholder="Enter Course Number" required>
             <input type="submit" value="Find Course Sections"><br>
         </form>
-        <form method="get" action="student_grades.php">
+        <form method="get" action="list_student_courses_grades.php">
             <input type="text" id="student-id" name="student_id" placeholder="Campus Wide ID" required>
             <input type="submit" value="Find Grades and Courses">
         </form>
